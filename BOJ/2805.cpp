@@ -31,11 +31,7 @@ int main() {
 				sum += v[i] - mid;
 			}
 		}
-		if (sum == M) {
-			ans = mid;
-			break;
-		}
-		else if (sum > M) {
+		if (sum >= M) {
 			l = mid + 1;
 			if (ans < mid) {
 				ans = mid;
@@ -46,7 +42,7 @@ int main() {
 		}
 	}
 	
-	cout << mid;
+	cout << ans;
 
 	return 0;
 }
