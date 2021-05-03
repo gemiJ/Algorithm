@@ -4,21 +4,29 @@ using namespace std;
 vector<vector<int>> v;
 
 void preorder(char node) {
-	cout << node;
-	for (int i = 0; i < v[node-65].size(); ++i) {
-		preorder(v[node-65][i]);
+	if (node == '.') {
+		return;
 	}
+	cout << node;
+	preorder(v[node - 65][0]);
+	preorder(v[node - 65][1]);
 }
 
-//
 void inorder(char node) {
-
+	if (node == '.') {
+		return;
+	}
+	inorder(v[node - 65][0]);
+	cout << node;
+	inorder(v[node - 65][1]);
 }
 
 void postorder(char node) {
-	for (int i = 0; i < v[node - 65].size(); ++i) {
-		postorder(v[node - 65][i]);
+	if (node == '.') {
+		return;
 	}
+	postorder(v[node - 65][0]);
+	postorder(v[node - 65][1]);
 	cout << node;
 }
 
@@ -32,10 +40,8 @@ int main() {
 	char x1, x2, x3;
 	for (int i = 0; i < N; i++) {
 		cin >> x1 >> x2 >> x3;
-		if(x2 != '.')
-			v[x1 - 65].push_back(x2);
-		if(x3!= '.')
-			v[x1 - 65].push_back(x3);
+		v[x1 - 65].push_back(x2);
+		v[x1 - 65].push_back(x3);
 	}
 
 	preorder('A');
