@@ -33,7 +33,7 @@ int solution(int n, vector<vector<int>> edge) {
 		
 		for (int i = 0; i < v[curNode].size(); i++) {
 			if (visited[v[curNode][i]]) continue;
-			 v[curNode][i];
+			v[curNode][i];
 			visited[v[curNode][i]] = true;
 
 			distance[v[curNode][i]] = distance[curNode] + 1;
